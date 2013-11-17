@@ -1,0 +1,32 @@
+<h2> Add a New Project </h2>
+<form name="myForm" ng-submit="submit()">
+   <!-- <span class="error" ng-show="myForm.title.$error.required">
+          Required!</span><br> -->
+    <div class="form_input">
+		<label> Title </label>
+		<input type="text" ng-model="project.title" name="title" id="title" placeholder="Project Title" required />
+		<span class="error" ng-show="myForm.title.$error.required">Required!</span>
+	</div>
+	<div class="form_input">
+		<label> Live Website </label>
+		<input type="url" ng-model="project.website" id="website" placeholder="Website Url" />
+	</div>
+	<div class="form_input">
+		<label> Git Repo </label>
+		<input type="url" ng-model="project.github" id="github" placeholder="Github Url" />
+	</div>
+	<div class="form_input">
+		<label> Image Folder </label>
+		<input type="text"  ng-model="project.imgfolder" name="imgfolder" id="imgfolder"required />
+		<span class="error" ng-show="myForm.imgfolder.$error.required">Required!</span>
+	</div>
+	<div class="form_input">
+		<label> Description</label>
+		<textarea ng-model="project.description" placeholder="Project Description" name="description" id="description" required > </textarea>
+		<span class="description_err error" ng-show="myForm.description.$error.required">^ Required!</span>
+	</div>
+	<div class="form_button">
+		<input type="submit" id="submit" value="Add Project" />
+	</div>
+	<div class="clear_fix"></div>
+</form>

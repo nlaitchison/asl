@@ -1,0 +1,12 @@
+<!-- <h2> Projects </h2> -->
+<article ng-repeat="project in projects" class="four columns">
+	<a ng-href="#/projects/{{project.id}}/show">
+		<img ng-src="images/{{project.imgfolder}}/preview.png" class="imgpreview" alt="{{project.title}}" title="{{project.title}}" />
+	</a>
+	<!-- 
+		<a ng-href="#/projects/{{project.id}}/show"><h3>{{project.title}}</h3></a>
+		<span ng-bind="project.createdAt | date:'short'"></span>
+		<a ng-href="{{project.website}}">website</a>
+		<a ng-href="{{project.github}}">git repo</a> 
+	-->
+</article>
