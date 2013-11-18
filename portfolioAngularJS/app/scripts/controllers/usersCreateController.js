@@ -4,8 +4,16 @@ myApp.controller('UsersCreateController', function ($scope, Restangular, $locati
 
     $scope.submit = function() {
       var u = Restangular.all('users');
-      u.post($scope.user).then(function(item){
-      	// console.log(item);
-      });
+
+      if($scope.user.password === $scope.user.repassword){
+
+      	console.log('match');
+      	u.post($scope.user).then(function(item){
+      		// console.log(item);
+      	});
+
+      }else{
+      	console.log('dont match');
+      }
     }
   });

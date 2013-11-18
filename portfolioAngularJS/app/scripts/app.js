@@ -28,6 +28,10 @@ var myApp = angular.module('nicoleTestApp', ['restangular']);
         templateUrl: 'views/usersNew.html',
         controller: 'UsersCreateController'
       })
+      .when('/admin', {
+        templateUrl: 'views/usersLogin.html',
+        controller: 'UsersLoginController'
+      })
       .otherwise({
         redirectTo: '/projects'
       });
