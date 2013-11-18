@@ -1,6 +1,6 @@
 'use strict';
 
-myApp.controller('ProjectCreateController', function ($scope, Restangular, $location) {
+myApp.controller('ProjectsCreateController', function ($scope, Restangular, $location) {
 
     $scope.submit = function() {
       var p = Restangular.all('projects');

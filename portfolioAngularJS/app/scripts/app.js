@@ -14,7 +14,7 @@ var myApp = angular.module('nicoleTestApp', ['restangular']);
       })
       .when('/projects/new', {
         templateUrl: 'views/projectsNew.html',
-        controller: 'ProjectCreateController'
+        controller: 'ProjectsCreateController'
       })
       .when('/projects/:id/edit', {
         templateUrl: 'views/projectsEdit.html',
@@ -23,6 +23,10 @@ var myApp = angular.module('nicoleTestApp', ['restangular']);
       .when('/projects/:id/show', {
         templateUrl: 'views/projectsShow.html',
         controller: 'ProjectsShowController'
+      })
+      .when('/register', {
+        templateUrl: 'views/usersNew.html',
+        controller: 'UsersCreateController'
       })
       .otherwise({
         redirectTo: '/projects'

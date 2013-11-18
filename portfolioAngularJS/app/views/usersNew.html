@@ -1,0 +1,12 @@
+<h2> Admin Registration </h2>
+<form name="myForm" ng-submit="submit()">
+	<div class="form_input">
+		<label> Username </label>
+		<input type="text" ng-model="user.username" name="username" id="username" placeholder="Username" required />
+	</div>
+	<div class="form_input">
+		<label> Password </label>
+		<input type="password" ng-model="user.password" id="password" placeholder="Password" />
+	</div>
+	<input type="submit" id="submit" value="Register" />
+</form>
