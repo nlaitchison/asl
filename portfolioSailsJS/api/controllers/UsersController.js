@@ -5,8 +5,11 @@
  * @description	:: Contains logic for handling requests.
  */
 
+
 module.exports = {
 
+  // tutorial used for this controller:
+  // http://sethetter.com/user-authentication-with-sails-js/
 
   login: function( req, res ) {
     var bcrypt = require( 'bcrypt' );
