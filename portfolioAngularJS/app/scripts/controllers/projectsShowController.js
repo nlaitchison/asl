@@ -6,4 +6,20 @@ myApp.controller('ProjectsShowController', function ($scope, Restangular, $route
     	$scope.project = p;
     });
 
+   $scope.githubExists = function() {
+   		if($scope.project.github != ""){
+   			return true;
+   		}else{
+   			return false;
+   		}
+   }
+
+   $scope.websiteExists = function() {
+   		if($scope.project.website != ""){
+   			return true;
+   		}else{
+   			return false;
+   		}
+   }
+
 });

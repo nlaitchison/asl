@@ -6,7 +6,7 @@
 </h2>
 <div class="twelve columns">
 	<span ng-bind="project.createdAt | date:'short'"></span>
-	<a ng-href="{{project.website}}">website</a>
-	<a ng-href="{{project.github}}">git repo</a>
+	<span ng-show="websiteExists()"><a ng-href="{{project.website}}">website</a></span>
+	<span ng-show="githubExists()"><a ng-href="{{project.github}}">git repo</a></span>
 	<p> {{project.description}} </p>
 </div>
