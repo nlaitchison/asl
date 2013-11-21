@@ -30,7 +30,11 @@ var myApp = angular.module('nicoleTestApp', ['restangular', 'ngCookies', 'ngRout
         resolve: {
           project: ['Restangular', '$route', function(Restangular, $route) {
               return Restangular.one('projects', $route.current.params.id).get();
-          }]        }
+          }],
+          images: ['Restangular', '$route', function(Restangular, $route) {
+              return Restangular.all('images').getList();
+          }]          
+        }
       })
       // .when('/register', {
       //   templateUrl: 'views/usersNew.html',

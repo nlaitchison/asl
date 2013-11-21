@@ -1,4 +1,3 @@
-<div>
 <ul id="admin_nav" ng-show="loggedIn">
   <li> <a ng-href="#/">View All Projects</a> </li>
   <li class="nav_pipe"> / </li>
@@ -19,10 +18,16 @@
 	</div>
 	
 </h2>
-<div class="twelve columns">
-	<span ng-bind="project.createdAt | date:'short'"></span>
-	<span ng-show="websiteExists()"><a ng-href="{{project.website}}">website</a></span>
-	<span ng-show="githubExists()"><a ng-href="{{project.github}}">git repo</a></span>
-	<p> {{project.description}} </p>
-</div>
+<div>
+	<div ng-repeat="img in images" class="four columns">
+		<a href="images/{{project.imgfolder}}/{{img.name}}"><img ng-src="images/{{project.imgfolder}}/{{img.name}}" class="imgpreview" /></a>
+	</div>
+	<div class="clear_fix"></div>
+	<div class="twelve columns" id="project_links">
+		<p> Check out the:
+		<span ng-show="websiteExists()"><a ng-href="{{project.website}}">website</a></span>  
+		<span ng-show="githubExists()">or the <a ng-href="{{project.github}}">github repo</a></span>
+		<p>
+	</div>
+	<p class="twelve columns"> {{project.description}} </p>
 </div>
