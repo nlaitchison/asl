@@ -1,8 +1,8 @@
 'use strict';
 
-var myApp = angular.module('nicoleTestApp', ['restangular', 'ngCookies']);
+var myApp = angular.module('nicoleTestApp', ['restangular', 'ngCookies', 'ngRoute']);
 
-  myApp.config(function ($routeProvider) {
+  myApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       // .when('/', {
       //   templateUrl: 'views/main.html',
@@ -48,7 +48,7 @@ var myApp = angular.module('nicoleTestApp', ['restangular', 'ngCookies']);
       .otherwise({
         redirectTo: '/projects'
       });
-  });
+  }]);
 myApp.config(['RestangularProvider', function(RestangularProvider){
     RestangularProvider.setBaseUrl('http://localhost:1337');
     RestangularProvider.setRestangularFields({

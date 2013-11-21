@@ -35,7 +35,7 @@
           <li class="nav_pipe"> / </li>
           <li> <a ng-href="#/projects/new">Add A Project</a> </li>
           <li class="nav_pipe"> / </li>
-          <li> <a ng-href="#/logout">Logout</a> </li>
+          <li> <a  ng-href="#/logout">Logout</a> </li>
         </ul>
         <div class="clear_fix"></div>
       </nav>
@@ -53,7 +53,8 @@
         </ul>
       </aside>
     
-      <div class="container" ng-view=""></div>
+      <!-- <div class="container" ng-view=""></div> -->
+      <ng-view/>
 
     </div> <!-- end main_content -->
 
@@ -72,6 +73,7 @@
     <script src="bower_components/angular/angular.js"></script> 
 
         <!-- build:js scripts/modules.js -->
+        <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -83,8 +85,6 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/base64.js"></script>
         <script src="scripts/authService.js"></script>
-        <script src="scripts/projectsService.js"></script>
-        <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/projectsViewController.js"></script>
         <script src="scripts/controllers/projectsCreateController.js"></script>
         <script src="scripts/controllers/projectsEditController.js"></script>

@@ -1,11 +1,14 @@
+<div>
 <h2>
 	{{project.title}} 
+	<div ng-show="loggedIn" >
 	<span class="edit_link">
-		<a ng-href="#/projects/{{project.id}}/edit/info" class="edit_link">Edit Info</a> 
+		<a  ng-href="#/projects/{{project.id}}/edit/info" class="edit_link">Edit Info</a> 
 	</span>
 	<span class="edit_link">
 		<a ng-href="#/projects/{{project.id}}/edit/images" class="edit_link">Edit Images</a> 
 	</span>
+	</div>
 	
 </h2>
 <div class="twelve columns">
@@ -13,4 +16,5 @@
 	<span ng-show="websiteExists()"><a ng-href="{{project.website}}">website</a></span>
 	<span ng-show="githubExists()"><a ng-href="{{project.github}}">git repo</a></span>
 	<p> {{project.description}} </p>
+</div>
 </div>

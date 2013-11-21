@@ -16,20 +16,20 @@ module.exports.policies = {
 
   // Default policy for all controllers and actions
   // (`true` allows public access) 
-  '*': true
+  '*': true,
 
-  //  // Project Controller Security
-  // ProjectsController: {
-  // 	destroy: 'isAuthenticated',
-  // 	create: 'isAuthenticated',
-  // 	update: 'isAuthenticated'
-  // },
+   // Project Controller Security
+  ProjectsController: {
+  	destroy: 'isAuthenticated',
+  	create: 'isAuthenticated',
+  	update: 'isAuthenticated'
+  },
 
-  // // This is required or else someone could make theirselves a user account!
-  // // This just sets all actions to require authentication.
-  // UserController: {
-  // 	'*': 'isAuthenticated',
-  // }
+  // This is required or else someone could make theirselves a user account!
+  // This just sets all actions to require authentication.
+  UsersController: {
+  	'*': 'isAuthenticated',
+  }
 
   /*
 	// Here's an example of adding some policies to a controller

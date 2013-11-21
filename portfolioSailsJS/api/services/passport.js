@@ -6,7 +6,7 @@ var passport = require('passport'),
   bcrypt = require('bcrypt');
 //helper functions
 function findById(id, fn) {
-  User.findOne(id).done(function (err, user) {
+  Users.findOne(id).done(function (err, user) {
     if (err) {
       return fn(null, null);
     } else {
@@ -16,7 +16,7 @@ function findById(id, fn) {
 }
  
 function findByUsername(u, fn) {
-  User.findOne({
+  Users.findOne({
     username: u
   }).done(function (err, user) {
     // Error handling

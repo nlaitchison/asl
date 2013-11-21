@@ -8,12 +8,17 @@ myApp.controller('LoginController', function ($scope, Restangular, $http, AuthSe
 
     $http({method: 'POST', url: 'http://localhost:1337/auth/login', headers: {'Authorization': 'Basic ' + encoded}}).
     success(function(data, status, headers, config){
+      console.log(data);
       if (data.message == 'login successful'){
         AuthService.setLoggedIn($scope.username, encoded);
+        console.log(AuthService.isLoggedIn());
+
       }else{ 
         alert('Invalid Username or Password!');
       }
     });
+
+
   }
 
   

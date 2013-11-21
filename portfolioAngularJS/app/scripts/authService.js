@@ -7,38 +7,41 @@ if ( typeof angular == 'undefined' ) {
   return;
 };
 
-myApp.factory('AuthService', function(Base64, $cookieStore, Restangular, $http) {
+myApp.service('AuthService', function(Base64, $cookieStore, Restangular, $http) {
 
-  cookie = 'Basic' + $cookieStore.get('authData');
-  $http.defaults.headers.common['Authorization'] = cookie;
- 
+  var cookie;
+  var loggedIn = false;
 
-  var auth = {
-    isLoggedIn: false,
-    username: ''
-  };
+  this.setHeader = function(){
+    cookie = 'Basic' + $cookieStore.get('authData');
+    $http.defaults.headers.common['Authorization'] = cookie;
 
-  return {
-    setLoggedIn: function(username, encoded){
+    loggedIn = true;
+  }
+
+  this.checkCookie = function(){
+    if($cookieStore.get('authData') != 'undefined')
+      this.setHeader();
+
+  }
+
+    this.setLoggedIn = function(username, encoded){
       $http.defaults.headers.common['Authorization'] = 'Basic ' + encoded;
       $cookieStore.put('authData', encoded);
-      auth = {
-        isLoggedIn: true,
-        username: username
-      }
-    },
-    setloggedOut: function(){
+      this.setHeader();
+
+    }
+    this.setloggedOut = function(){
       $http.defaults.headers.common['Authorization'] = '';
       $cookieStore.remove('authData');
-      auth = {
-        isLoggedIn: false,
-        username: ''
-      }
-    },
-    isLoggedIn: auth.isLoggedIn
-  }
-  
+      loggedIn =false;
+ 
+    }
+    this.isLoggedIn = function(){
+      return loggedIn;
+    }
 
+    this.setHeader();
 });
 
 

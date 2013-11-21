@@ -1,19 +1,15 @@
 'use strict';
 
-myApp.controller('ProjectsShowController', function ($scope, $routeParams, $location, project) {
+myApp.controller('ProjectsShowController', function ($scope, $routeParams, $location, project, AuthService) {
 
-    // Restangular.one('projects', $routeParams.id).get().then(function(p){
-    // 	$scope.project = p;
-    // });
-$scope.project = project;
+  $scope.project = project;
 
    $scope.githubExists = function() {
-   		if($scope.project.github != ""){
+   		if($scope.project.github != "")
    			return true;
-   		}else{
+   		else
    			return false;
-   		}
-   }
+   };
 
    $scope.websiteExists = function() {
    		if($scope.project.website != ""){
@@ -21,6 +17,13 @@ $scope.project = project;
    		}else{
    			return false;
    		}
-   }
+   };
+  //  $scope.loggedIn = function() {
+  //   console.log(AuthService.isLoggedIn())
+  //   // return aService;
+  // };
+console.log(AuthService.isLoggedIn())
+  $scope.loggedIn = AuthService.isLoggedIn();
 
+  // console.log($scope.loggedIn());
 });
