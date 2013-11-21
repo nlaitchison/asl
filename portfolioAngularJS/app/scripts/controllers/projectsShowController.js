@@ -18,12 +18,7 @@ myApp.controller('ProjectsShowController', function ($scope, $routeParams, $loca
    			return false;
    		}
    };
-  //  $scope.loggedIn = function() {
-  //   console.log(AuthService.isLoggedIn())
-  //   // return aService;
-  // };
-console.log(AuthService.isLoggedIn())
+
   $scope.loggedIn = AuthService.isLoggedIn();
 
-  // console.log($scope.loggedIn());
 });

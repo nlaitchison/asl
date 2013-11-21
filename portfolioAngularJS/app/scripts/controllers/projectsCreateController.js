@@ -1,6 +1,6 @@
 'use strict';
 
-myApp.controller('ProjectsCreateController', function ($scope, Restangular, $location) {
+myApp.controller('ProjectsCreateController', function ($scope, Restangular, $location, AuthService) {
 
     $scope.submit = function() {
       var p = Restangular.all('projects');
@@ -8,5 +8,8 @@ myApp.controller('ProjectsCreateController', function ($scope, Restangular, $loc
       	console.log(item);
       	$location.path('/');
       });
-    }
+    };
+
+    $scope.loggedIn = AuthService.isLoggedIn();
+    
   });

@@ -1,6 +1,6 @@
 'use strict';
 
-myApp.controller('ImagesController', function ($scope, Restangular, $routeParams, $location, $filter) {
+myApp.controller('ImagesController', function ($scope, Restangular, $routeParams, $location, $filter, AuthService) {
 
     Restangular.one('projects', $routeParams.id).get().then(function(p){
       $scope.project = p;
@@ -26,5 +26,8 @@ myApp.controller('ImagesController', function ($scope, Restangular, $routeParams
         $scope.images.splice(index, 1);
       })
     };
+
+    $scope.loggedIn = AuthService.isLoggedIn();
+    console.log("meow " + $scope.loggedIn);
 
 });

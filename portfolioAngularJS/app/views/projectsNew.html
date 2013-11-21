@@ -1,3 +1,12 @@
+<ul id="admin_nav" ng-show="loggedIn">
+  <li> <a ng-href="#/">View All Projects</a> </li>
+  <li class="nav_pipe"> / </li>
+  <li> <a ng-href="#/projects/new">Add a Project</a> </li>
+  <li class="nav_pipe"> / </li>
+  <li > <a  ng-href="#/logout">Logout</a> </li>
+  <div class="clear_fix"></div>
+</ul> 
+
 <h2> Add a New Project </h2>
 <form class="twelve columns" name="myForm" ng-submit="submit()">
    <!-- <span class="error" ng-show="myForm.title.$error.required">
