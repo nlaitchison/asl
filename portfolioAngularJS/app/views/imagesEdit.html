@@ -1,6 +1,7 @@
-<h2> Edit Images for {{project.title}} </h2>
+<h2>{{project.title}} - Edit Images</h2>
 
 <form class="twelve columns" name="myForm" ng-submit="submit()">
+	<h3> Add an Image </h3>
 	<div class="form_input">
 		<label> Filepath </label>
 		<input type="text" name="name" id="name" ng-model="image.name" required/>
@@ -12,8 +13,12 @@
 <div class="clear_fix"></div>
 <div class="divider"></div>
 
-<div ng-repeat="img in imgs">
-	<img ng-src="images/{{project.imgfolder}}/preview.png" class="img_thumb two columns" alt="{{project.title}}" title="{{project.title}}" />
-	<p> {{img.name}} </p>
+<div ng-repeat="img in imgs" class="img_info">
+	<img ng-src="images/{{project.imgfolder}}/{{img.name}}" class="img_thumb two columns" />
+	<p class="eight columns"> {{img.name}} </p>
+	<div class="two columns">
+		<button ng-click="destroy(img)" class="delete"> Delete Image</button>
+	</div>
+	<div class="clear_fix"></div>
 </div>
 

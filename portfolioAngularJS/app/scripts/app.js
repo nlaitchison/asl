@@ -22,7 +22,7 @@ var myApp = angular.module('nicoleTestApp', ['restangular']);
       })
       .when('/projects/:id/edit/images', {
         templateUrl: 'views/imagesEdit.html',
-        controller: 'ImagesEditController'
+        controller: 'ImagesController'
       })
       .when('/projects/:id/show', {
         templateUrl: 'views/projectsShow.html',

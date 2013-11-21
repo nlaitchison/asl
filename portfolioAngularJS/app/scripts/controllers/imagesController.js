@@ -1,6 +1,6 @@
 'use strict';
 
-myApp.controller('ImagesEditController', function ($scope, Restangular, $routeParams, $location) {
+myApp.controller('ImagesController', function ($scope, Restangular, $routeParams, $location) {
 
     Restangular.one('projects', $routeParams.id).get().then(function(p){
       $scope.project = p;
@@ -9,8 +9,11 @@ myApp.controller('ImagesEditController', function ($scope, Restangular, $routePa
    var allImgs = '';
    var imgs = [];
 
-    var getImgs = function(){
+   // only get the images for this project
 
+    var getImgs = function(){
+      allImgs = '';
+      imgs = [];
       Restangular.all('images').getList().then(function(items){
         allImgs = items;
 
@@ -33,10 +36,16 @@ myApp.controller('ImagesEditController', function ($scope, Restangular, $routePa
       $scope.image.projectId = $routeParams.id;
 
       allImgs.post($scope.image).then(function(item){
-        $location.path('/projects/' + $routeParams.id +'/edit/images');
         getImgs();
       });
 
+    };
+
+    $scope.destroy = function(i) {
+      console.log('delete clicked');
+      Restangular.one('images', i.id).remove().then(function(){
+        getImgs();
+      })
     };
 
 });

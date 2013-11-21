@@ -8,7 +8,7 @@ myApp.controller('ProjectsEditController', function ($scope, Restangular, $route
 
     $scope.submit = function() {
       $scope.project.put().then(function(){
-      	$location.path('/');
+        $location.path('/');
       });
     }
 
