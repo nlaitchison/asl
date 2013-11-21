@@ -9,16 +9,20 @@ var myApp = angular.module('nicoleTestApp', ['restangular']);
       //   controller: 'MainCtrl'
       // })
       .when('/projects', {
-        templateUrl: 'views/projectsIndex.html',
+        templateUrl: 'views/projectsView.html',
         controller: 'ProjectsViewController'
       })
       .when('/projects/new', {
         templateUrl: 'views/projectsNew.html',
         controller: 'ProjectsCreateController'
       })
-      .when('/projects/:id/edit', {
+      .when('/projects/:id/edit/info', {
         templateUrl: 'views/projectsEdit.html',
         controller: 'ProjectsEditController'
+      })
+      .when('/projects/:id/edit/images', {
+        templateUrl: 'views/imagesEdit.html',
+        controller: 'ImagesEditController'
       })
       .when('/projects/:id/show', {
         templateUrl: 'views/projectsShow.html',

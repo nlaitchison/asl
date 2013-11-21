@@ -1,8 +1,12 @@
 <h2>
 	{{project.title}} 
 	<span class="edit_link">
-		<a ng-href="#/projects/{{project.id}}/edit" class="edit_link">Edit</a>
+		<a ng-href="#/projects/{{project.id}}/edit/info" class="edit_link">Edit Info</a> 
 	</span>
+	<span class="edit_link">
+		<a ng-href="#/projects/{{project.id}}/edit/images" class="edit_link">Edit Images</a> 
+	</span>
+	
 </h2>
 <div class="twelve columns">
 	<span ng-bind="project.createdAt | date:'short'"></span>

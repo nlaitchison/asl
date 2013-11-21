@@ -1,0 +1,19 @@
+<h2> Edit Images for {{project.title}} </h2>
+
+<form class="twelve columns" name="myForm" ng-submit="submit()">
+	<div class="form_input">
+		<label> Filepath </label>
+		<input type="text" name="name" id="name" ng-model="image.name" required/>
+		<input type="submit" id="submit" class="add_img" value="ADD" />
+	</div>
+
+</form>
+
+<div class="clear_fix"></div>
+<div class="divider"></div>
+
+<div ng-repeat="img in imgs">
+	<img ng-src="images/{{project.imgfolder}}/preview.png" class="img_thumb two columns" alt="{{project.title}}" title="{{project.title}}" />
+	<p> {{img.name}} </p>
+</div>
+
