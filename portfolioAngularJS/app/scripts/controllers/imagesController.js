@@ -1,50 +1,29 @@
 'use strict';
 
-myApp.controller('ImagesController', function ($scope, Restangular, $routeParams, $location) {
+myApp.controller('ImagesController', function ($scope, Restangular, $routeParams, $location, $filter) {
 
     Restangular.one('projects', $routeParams.id).get().then(function(p){
       $scope.project = p;
     });
 
-   var allImgs = '';
-   var imgs = [];
 
-   // only get the images for this project
-
-    var getImgs = function(){
-      allImgs = '';
-      imgs = [];
-      Restangular.all('images').getList().then(function(items){
-        allImgs = items;
-
-        for(var i = 0, max = allImgs.length; i < max; i++){
-          if(allImgs[i].projectId === $routeParams.id){
-            imgs.push(allImgs[i]);
-          }
-        }
-
-        $scope.imgs = imgs;
-
-     });
-
-    };
-
-    getImgs();
+    Restangular.all('images').getList().then(function(items){
+      $scope.images = $filter('filter')(items, {projectId: $routeParams.id});
+    })
 
     $scope.submit = function() {
       
       $scope.image.projectId = $routeParams.id;
 
-      allImgs.post($scope.image).then(function(item){
-        getImgs();
+      Restangular.all('images').post($scope.image).then(function(item){ 
+        $scope.images.push(item);
       });
 
     };
 
-    $scope.destroy = function(i) {
-      console.log('delete clicked');
-      Restangular.one('images', i.id).remove().then(function(){
-        getImgs();
+    $scope.destroy = function(img, index) {
+      Restangular.one('images', img.id).remove().then(function(){
+        $scope.images.splice(index, 1);
       })
     };
 

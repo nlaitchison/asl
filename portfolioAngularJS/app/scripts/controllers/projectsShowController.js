@@ -1,10 +1,11 @@
 'use strict';
 
-myApp.controller('ProjectsShowController', function ($scope, Restangular, $routeParams, $location) {
+myApp.controller('ProjectsShowController', function ($scope, $routeParams, $location, project) {
 
-    Restangular.one('projects', $routeParams.id).get().then(function(p){
-    	$scope.project = p;
-    });
+    // Restangular.one('projects', $routeParams.id).get().then(function(p){
+    // 	$scope.project = p;
+    // });
+$scope.project = project;
 
    $scope.githubExists = function() {
    		if($scope.project.github != ""){

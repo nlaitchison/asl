@@ -6,35 +6,39 @@
  *
  */
 
+var bcrypt = require('bcrypt');
 module.exports = {
 
   attributes: {
-          
-    username: {
-      type: 'string',
-      unique: true,
-      required: true
-    },
-
-    password: {
+    
+      username: {
       type: 'string',
       required: true,
-      minLength: 6
+      unique: true
+    },
+    password: {
+      type: 'string',
+      required: true
+    },
+    toJSON: function() {
+      var obj = this.toObject();
+      delete obj.password;
+      return obj;
     }
-
   },
-
-  beforeCreate: function (attrs, next) {
-    var bcrypt = require('bcrypt');
-
-    bcrypt.hash(attrs.password, 10, function(err, hash) {
-      if (err) return next(err);
-
-      attrs.password = hash;
-      next();
+  beforeCreate: function(user, cb) {
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(user.password, salt, function(err, hash) {
+        if (err) {
+          console.log(err);
+          cb(err);
+        }else{
+          user.password = hash;
+          cb(null, user);
+        }
+      });
     });
   }
-
 };
 
 

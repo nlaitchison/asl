@@ -13,11 +13,11 @@
 <div class="clear_fix"></div>
 <div class="divider"></div>
 
-<div ng-repeat="img in imgs" class="img_info">
+<div ng-repeat="img in images" class="img_info">
 	<img ng-src="images/{{project.imgfolder}}/{{img.name}}" class="img_thumb two columns" />
 	<p class="eight columns"> {{img.name}} </p>
 	<div class="two columns">
-		<button ng-click="destroy(img)" class="delete"> Delete Image</button>
+		<button ng-click="destroy(img, $index)" class="delete"> Delete Image</button>
 	</div>
 	<div class="clear_fix"></div>
 </div>

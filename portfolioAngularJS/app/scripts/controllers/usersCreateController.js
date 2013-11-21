@@ -5,7 +5,7 @@ myApp.controller('UsersCreateController', function ($scope, Restangular, $locati
     $scope.submit = function() {
       var u = Restangular.all('users');
 
-      if($scope.user.password === $scope.user.repassword){
+      if($scope.user.password === $scope.validate.password){
 
       	console.log('match');
       	u.post($scope.user).then(function(item){

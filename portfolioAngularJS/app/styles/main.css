@@ -37,7 +37,7 @@ body{
 
 h2{
     font: 24px 'Dosis', sans-serif;
-    padding: 18px 0;
+    padding: 0 0 20px;
     margin: 0 10px;
 }
 
@@ -230,6 +230,18 @@ input:invalid, textarea:invalid {
 
 .imgpreview:hover{
     opacity: .6;
+}
+
+.divider{
+    height: 1px;
+    width: 100%;
+    margin-top: 15px;
+    background-color: #e1e1e1;
+}
+
+.img_info{
+    padding: 15px 0;
+    border-bottom: 1px solid #e1e1e1;
 }
 
 /* ---------------------------------------------------------------------------------------------------

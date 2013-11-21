@@ -1,6 +1,6 @@
 'use strict';
 
-var myApp = angular.module('nicoleTestApp', ['restangular']);
+var myApp = angular.module('nicoleTestApp', ['restangular', 'ngCookies']);
 
   myApp.config(function ($routeProvider) {
     $routeProvider
@@ -26,7 +26,12 @@ var myApp = angular.module('nicoleTestApp', ['restangular']);
       })
       .when('/projects/:id/show', {
         templateUrl: 'views/projectsShow.html',
-        controller: 'ProjectsShowController'
+        controller: 'ProjectsShowController',
+        resolve: {
+          project: ['Restangular', '$route', function(Restangular, $route) {
+              return Restangular.one('projects', $route.current.params.id).get();
+          }]
+        }
       })
       .when('/register', {
         templateUrl: 'views/usersNew.html',
@@ -34,7 +39,11 @@ var myApp = angular.module('nicoleTestApp', ['restangular']);
       })
       .when('/admin', {
         templateUrl: 'views/usersLogin.html',
-        controller: 'UsersLoginController'
+        controller: 'LoginController'
+      })
+      .when('/logout', {
+        templateUrl: 'views/usersLogout.html',
+        controller: 'LogoutController'
       })
       .otherwise({
         redirectTo: '/projects'

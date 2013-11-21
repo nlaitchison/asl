@@ -18,6 +18,19 @@ module.exports.policies = {
   // (`true` allows public access) 
   '*': true
 
+  //  // Project Controller Security
+  // ProjectsController: {
+  // 	destroy: 'isAuthenticated',
+  // 	create: 'isAuthenticated',
+  // 	update: 'isAuthenticated'
+  // },
+
+  // // This is required or else someone could make theirselves a user account!
+  // // This just sets all actions to require authentication.
+  // UserController: {
+  // 	'*': 'isAuthenticated',
+  // }
+
   /*
 	// Here's an example of adding some policies to a controller
 	RabbitController: {
