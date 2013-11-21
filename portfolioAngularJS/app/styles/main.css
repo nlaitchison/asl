@@ -134,6 +134,7 @@ header{
 
 nav ul{
     float: right;
+    margin-right: 10px;
 }
 
 nav a{
@@ -243,6 +244,19 @@ input:invalid, textarea:invalid {
     padding: 15px 0;
     border-bottom: 1px solid #e1e1e1;
 }
+
+#admin_nav{
+    float: right;
+    margin-right: 8px;
+    margin-top: -50px;
+    padding: 0 0 62px;
+    width: 268px;
+}
+
+#admin_nav a{
+    color: #5B01E1;
+}
+
 
 /* ---------------------------------------------------------------------------------------------------
         ∆ Footer

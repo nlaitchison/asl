@@ -24,19 +24,18 @@ var myApp = angular.module('nicoleTestApp', ['restangular', 'ngCookies', 'ngRout
         templateUrl: 'views/imagesEdit.html',
         controller: 'ImagesController'
       })
-      .when('/projects/:id/show', {
+      .when('/projects/:id', {
         templateUrl: 'views/projectsShow.html',
         controller: 'ProjectsShowController',
         resolve: {
           project: ['Restangular', '$route', function(Restangular, $route) {
               return Restangular.one('projects', $route.current.params.id).get();
-          }]
-        }
+          }]        }
       })
-      .when('/register', {
-        templateUrl: 'views/usersNew.html',
-        controller: 'UsersCreateController'
-      })
+      // .when('/register', {
+      //   templateUrl: 'views/usersNew.html',
+      //   controller: 'UsersCreateController'
+      // })
       .when('/admin', {
         templateUrl: 'views/usersLogin.html',
         controller: 'LoginController'

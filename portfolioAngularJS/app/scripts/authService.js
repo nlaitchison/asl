@@ -41,7 +41,7 @@ myApp.service('AuthService', function(Base64, $cookieStore, Restangular, $http) 
       return loggedIn;
     }
 
-    this.setHeader();
+    // this.setHeader();
 });
 
 

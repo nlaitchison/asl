@@ -19,11 +19,11 @@ module.exports.policies = {
   '*': true,
 
    // Project Controller Security
-  ProjectsController: {
-  	destroy: 'isAuthenticated',
-  	create: 'isAuthenticated',
-  	update: 'isAuthenticated'
-  },
+  // ProjectsController: {
+  // 	destroy: 'isAuthenticated',
+  // 	create: 'isAuthenticated',
+  // 	update: 'isAuthenticated'
+  // },
 
   // This is required or else someone could make theirselves a user account!
   // This just sets all actions to require authentication.

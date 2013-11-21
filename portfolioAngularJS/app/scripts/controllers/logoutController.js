@@ -2,7 +2,7 @@
 
 myApp.controller('LogoutController', function (AuthService, $location) {
   AuthService.setloggedOut();
-  console.log(AuthService.isLoggedIn);
+  console.log(AuthService.isLoggedIn());
 
   // $location.path('/');
   

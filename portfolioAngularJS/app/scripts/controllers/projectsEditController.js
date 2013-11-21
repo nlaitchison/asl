@@ -1,6 +1,6 @@
 'use strict';
 
-myApp.controller('ProjectsEditController', function ($scope, Restangular, $routeParams, $location) {
+myApp.controller('ProjectsEditController', function ($scope, Restangular, $routeParams, $location, AuthService) {
 
     Restangular.one('projects', $routeParams.id).get().then(function(p){
     	$scope.project = p;
@@ -17,5 +17,7 @@ myApp.controller('ProjectsEditController', function ($scope, Restangular, $route
       	$location.path('/');
       });
     }
+
+    $scope.loggedIn = AuthService.isLoggedIn();
 
 });

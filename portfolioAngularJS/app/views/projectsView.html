@@ -1,6 +1,16 @@
-<!-- <h2> Projects </h2> -->
+<ul id="admin_nav" ng-show="loggedIn">
+  <li> <a ng-href="#/">View All Projects</a> </li>
+  <li class="nav_pipe"> / </li>
+  <li> <a ng-href="#/projects/new">Add a Project</a> </li>
+  <li class="nav_pipe"> / </li>
+  <li > <a  ng-href="#/logout">Logout</a> </li>
+  <div class="clear_fix"></div>
+</ul> 
+
+<div class="clear_fix"></div>
+
 <article ng-repeat="project in projects" class="four columns">
-	<a ng-href="#/projects/{{project.id}}/show">
+	<a ng-href="#/projects/{{project.id}}">
 		<img ng-src="images/{{project.imgfolder}}/preview.png" class="imgpreview" alt="{{project.title}}" title="{{project.title}}" />
 	</a>
 	<!-- 

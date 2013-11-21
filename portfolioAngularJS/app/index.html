@@ -31,12 +31,12 @@
     <header>
       <nav class="s-container">
         <ul>
-          <li> <a ng-href="#/">View Projects</a> </li>
+          <li> <a ng-href="#/">Work</a> </li>
           <li class="nav_pipe"> / </li>
-          <li> <a ng-href="#/projects/new">Add A Project</a> </li>
+          <li> <a ng-href="#/projects">About</a> </li>
           <li class="nav_pipe"> / </li>
-          <li> <a  ng-href="#/logout">Logout</a> </li>
-        </ul>
+          <li > <a  ng-href="#/projects">Contact</a> </li>
+        </ul> 
         <div class="clear_fix"></div>
       </nav>
     </header>
@@ -53,8 +53,8 @@
         </ul>
       </aside>
     
-      <!-- <div class="container" ng-view=""></div> -->
-      <ng-view/>
+      <div class="container" ng-view=""></div>
+      <!-- <ng-view/> -->
 
     </div> <!-- end main_content -->
 
@@ -93,6 +93,7 @@
         <script src="scripts/controllers/usersCreateController.js"></script>
         <script src="scripts/controllers/loginController.js"></script>
         <script src="scripts/controllers/logoutController.js"></script>
+        <script src="scripts/controllers/navController.js"></script>
         <!-- endbuild -->
 </body>
 </html>
