@@ -1,6 +1,6 @@
 'use strict';
 
-myApp.controller('LoginController', function ($scope, Restangular, $http, AuthService, Base64) {
+myApp.controller('LoginController', function ($scope, Restangular, $http, AuthService, Base64, $location) {
 
   $scope.submit = function() {
     var encoded = Base64.encode($scope.username + ':' + $scope.password);
@@ -12,6 +12,7 @@ myApp.controller('LoginController', function ($scope, Restangular, $http, AuthSe
       if (data.message == 'login successful'){
         AuthService.setLoggedIn($scope.username, encoded);
         console.log(AuthService.isLoggedIn());
+        $location.path('/');
 
       }else{ 
         alert('Invalid Username or Password!');

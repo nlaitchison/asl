@@ -261,6 +261,13 @@ input:invalid, textarea:invalid {
     margin: 15px 10px;
 }
 
+#edit_links{
+    margin: 0 0 20px;
+}
+
+#project_header h2{
+    padding: 0 0 20px;
+}
 
 /* ---------------------------------------------------------------------------------------------------
         ∆ Footer
